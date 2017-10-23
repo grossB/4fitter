@@ -25,9 +25,18 @@ namespace _4fitter.Models
         {
         }
 
+        public DbSet<Article> Articles { get; set; }
+
+        public DbSet<Tag> Tags { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

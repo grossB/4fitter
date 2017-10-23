@@ -26,5 +26,10 @@ namespace _4fitter.Controllers
 
             return View();
         }
+
+        public ActionResult AdminPanel()
+        {
+            return View();
+        }
     }
 }
