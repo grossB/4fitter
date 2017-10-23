@@ -1,6 +1,6 @@
 namespace _4fitter.Migrations
 {
-    using _4fitter.Common;
+    using _4fitter.Utilities;
     using _4fitter.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
@@ -27,13 +27,13 @@ namespace _4fitter.Migrations
                 manager.Create(role);
             }
 
-            if (!context.Users.Any(u => u.UserName == "admin"))
+            if (!context.Users.Any(u => u.UserName == "admin@4fitter.pl"))
             {
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
-                var user = new ApplicationUser { UserName = "admin" };
+                var user = new ApplicationUser { UserName = "admin@4fitter.pl", Email = "admin@4fitter.pl" };
 
-                manager.Create(user, "admin1");
+                manager.Create(user, "Admin!1");
                 manager.AddToRole(user.Id, Definitions.ROLE_ADMIN);
             }
         }
