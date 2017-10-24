@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using _4fitter.Models;
+using _4fitter.Utilities;
 
 namespace _4fitter.Controllers
 {
@@ -14,25 +15,20 @@ namespace _4fitter.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Articles
-        public ActionResult Index()
+        // GET: Articles/<friendly-id>
+        public ActionResult Index(string id = "")
         {
-            return View(db.Articles.ToList());
-        }
-
-        // GET: Articles/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
+            if (id.IsNullOrEmpty())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return View(db.Articles.ToList());
             }
-            Article article = db.Articles.Find(id);
+            
+            Article article = db.Articles.First(a => a.FriendlyID == id);
             if (article == null)
             {
                 return HttpNotFound();
             }
-            return View(article);
+            return View("Details", article);
         }
 
         // GET: Articles/Create
@@ -47,7 +43,7 @@ namespace _4fitter.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "ID,FriendlyID,ArticleType,ContentTextFormatted")] Article article)
+        public ActionResult Create([Bind(Include = "ID,Title,IllustrationURL,FriendlyID,ArticleType,ContentTextFormatted,Author")] Article article)
         {
             if (ModelState.IsValid)
             {
