@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using _4fitter.Utilities;
 using System.Web.Mvc;
 
 namespace _4fitter.Controllers
@@ -27,6 +24,7 @@ namespace _4fitter.Controllers
             return View();
         }
 
+        [Authorize(Roles = Definitions.ROLE_ADMIN)]
         public ActionResult AdminPanel()
         {
             return View();

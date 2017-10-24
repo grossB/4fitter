@@ -2,6 +2,6 @@
 {
     public class Definitions
     {
-        public static readonly string ROLE_ADMIN = "Admin";
+        public const string ROLE_ADMIN = "Admin";
     }
 }
