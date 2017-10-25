@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using _4fitter.Models;
 using _4fitter.Utilities;
+using Microsoft.AspNet.Identity;
 
 namespace _4fitter.Controllers
 {
@@ -52,6 +53,8 @@ namespace _4fitter.Controllers
         {
             if (ModelState.IsValid)
             {
+                article.Author = User.Identity.GetUserId();
+
                 db.Articles.Add(article);
                 db.SaveChanges();
                 return RedirectToAction("Index");

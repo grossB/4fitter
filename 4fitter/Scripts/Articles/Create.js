@@ -18,7 +18,7 @@ function getArticleAsHtml() {
 
 function createFriendlyId(title) {
     var result = '';
-    var forbiddenChars = ['ń', 'ą', 'ś', 'ć', 'ź', 'ż', 'ó', 'ł', 'ę', '.', ',', ';', '/', '*'];
+    var forbiddenChars = ['ń', 'ą', 'ś', 'ć', 'ź', 'ż', 'ó', 'ł', 'ę', '.', ',', ';', '/', '*', '[', ']', '!', '?'];
 
     for (var i = 0; i < title.length; i++) {
         var char = title[i].toLowerCase();

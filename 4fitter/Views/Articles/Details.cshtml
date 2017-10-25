@@ -4,39 +4,8 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
 <div>
-    <h4>Article</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FriendlyID)
-        </dt>
+    <h3>@Html.DisplayFor(model => model.Title)</h3>
 
-        <dd>
-            @Html.DisplayFor(model => model.FriendlyID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ArticleType)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ArticleType)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ContentTextFormatted)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ContentTextFormatted)
-        </dd>
-
-    </dl>
+    @Html.Raw(Model.ContentTextFormatted)
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
