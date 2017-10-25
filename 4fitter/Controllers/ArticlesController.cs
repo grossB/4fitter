@@ -15,20 +15,25 @@ namespace _4fitter.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        // GET: Articles
+        public ActionResult Index()
+        {
+            return View(db.Articles.ToList());
+        }
+
         // GET: Articles/<friendly-id>
-        public ActionResult Index(string id = "")
+        public ActionResult Details(string id = "")
         {
             if (id.IsNullOrEmpty())
             {
-                return View(db.Articles.ToList());
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
             Article article = db.Articles.First(a => a.FriendlyID == id);
             if (article == null)
             {
                 return HttpNotFound();
             }
-            return View("Details", article);
+            return View(article);
         }
 
         // GET: Articles/Create

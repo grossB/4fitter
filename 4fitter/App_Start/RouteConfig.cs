@@ -15,9 +15,15 @@ namespace _4fitter
 
             routes.MapRoute(
                 name: "Articles",
-                url: "{controller}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                url: "Articles/{id}",
+                defaults: new { controller = "Articles", action = "Details" }
             );
+
+            routes.MapRoute(
+                name: "ArticlesAction",
+                url: "Article/{action}/{id}",
+                defaults: new { controller = "Articles", action = "Index", id = UrlParameter.Optional }
+            );        
 
             routes.MapRoute(
                 name: "Default",
