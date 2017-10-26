@@ -4,42 +4,22 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FriendlyID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ArticleType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContentTextFormatted)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.FriendlyID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ArticleType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContentTextFormatted)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
+@section Styles {
+    <link rel="Stylesheet" href="@Href("~/Content/Articles/index.css")" />
 }
 
-</table>
+<h2>Articles</h2>
+
+<div class="article-container">
+
+    @foreach (var item in Model)
+    {
+        <div class="article-preview">
+            <a href="/Articles/@item.FriendlyID">
+                <img class="article-illustration" src="@item.IllustrationURL" />
+                @item.Title
+            </a>
+        </div>
+    }
+
+</div>

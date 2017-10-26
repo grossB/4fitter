@@ -14,7 +14,7 @@
 
 function getArticleAsHtml() {
     return $('iframe').contents().find('html').html();
-};
+}
 
 function createFriendlyId(title) {
     var result = '';

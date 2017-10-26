@@ -1,0 +1,13 @@
+﻿.article-preview {
+    width: 200px;
+    height: 300px;
+}
+
+.article-illustration {
+    width: 200px;
+    height: 160px;
+}
+
+.article-container {
+    display: flex;
+}

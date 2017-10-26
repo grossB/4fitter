@@ -83,7 +83,8 @@ namespace _4fitter.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FriendlyID,ArticleType,ContentTextFormatted")] Article article)
+        [ValidateInput(false)]
+        public ActionResult Edit([Bind(Include = "ID,Title,IllustrationURL,FriendlyID,ArticleType,ContentTextFormatted,Author")] Article article)
         {
             if (ModelState.IsValid)
             {
