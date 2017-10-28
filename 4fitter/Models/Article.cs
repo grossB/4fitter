@@ -1,6 +1,8 @@
 ﻿using _4fitter.Enums;
+using _4fitter.Utilities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace _4fitter.Models
 {
@@ -15,7 +17,6 @@ namespace _4fitter.Models
         public string IllustrationURL { get; set; }
 
         [Required]
-        //Add unique attribute
         public string FriendlyID { get; set; }
 
         [Required]

@@ -51,6 +51,8 @@ namespace _4fitter.Controllers
         [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "ID,Title,IllustrationURL,FriendlyID,ArticleType,ContentTextFormatted,Author")] Article article)
         {
+            this.CheckIfTitleUnique(article.Title, article.FriendlyID);
+
             if (ModelState.IsValid)
             {
                 article.Author = User.Identity.GetUserId();
@@ -86,6 +88,8 @@ namespace _4fitter.Controllers
         [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "ID,Title,IllustrationURL,FriendlyID,ArticleType,ContentTextFormatted,Author")] Article article)
         {
+            this.CheckIfTitleUnique(article.Title, article.FriendlyID);
+
             if (ModelState.IsValid)
             {
                 db.Entry(article).State = EntityState.Modified;
@@ -128,6 +132,16 @@ namespace _4fitter.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private void CheckIfTitleUnique(string title, string friendlyId)
+        {
+            var isDuplicated = db.Articles.Any(a => a.Title == title && a.FriendlyID == friendlyId);
+
+            if (isDuplicated)
+            {
+                ModelState.AddModelError("FriendlyID", Resources.ErrorStrings.FriendlyIdMustBeUnique);
+            }
         }
     }
 }
