@@ -53,8 +53,19 @@ namespace _4fitter.Controllers
 
             if (ModelState.IsValid)
             {
+                var tags = this.GetTagsByRawTags(article.RawTags);
                 article.Author = User.Identity.GetUserId();
 
+                foreach (var tag in tags)
+                {
+                    if (db.Tags.Any(t => t.Name == tag.Name))
+                    {
+                        continue;
+                    }
+                    db.Tags.Add(tag);
+                }
+
+                article.Tags = tags;
                 db.Articles.Add(article);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -139,6 +150,18 @@ namespace _4fitter.Controllers
             {
                 ModelState.AddModelError("FriendlyID", Resources.ErrorStrings.FriendlyIdMustBeUnique);
             }
+        }
+
+        private List<Tag> GetTagsByRawTags(string rawTags)
+        {
+            var result = new List<Tag>();
+
+            var splittedTags = rawTags.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+
+            return splittedTags.Select(tag => new Tag
+            {
+                Name = tag
+            }).ToList();
         }
     }
 }
