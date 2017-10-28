@@ -44,12 +44,10 @@ namespace _4fitter.Controllers
         }
 
         // POST: Articles/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "ID,Title,IllustrationURL,FriendlyID,ArticleType,ContentTextFormatted,Author")] Article article)
+        public ActionResult Create([Bind(Include = "ID,Title,IllustrationURL,FriendlyID,ArticleType,ContentTextFormatted,Author,RawTags")] Article article)
         {
             this.CheckIfTitleUnique(article);
 
@@ -81,8 +79,6 @@ namespace _4fitter.Controllers
         }
 
         // POST: Articles/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
@@ -139,7 +135,6 @@ namespace _4fitter.Controllers
             var isDuplicated = db.Articles.Any(a => a.Title == article.Title && 
                                                     a.FriendlyID == article.FriendlyID &&
                                                     a.ID != article.ID);
-
             if (isDuplicated)
             {
                 ModelState.AddModelError("FriendlyID", Resources.ErrorStrings.FriendlyIdMustBeUnique);

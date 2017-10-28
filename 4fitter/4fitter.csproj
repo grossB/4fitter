@@ -188,6 +188,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Migrations\201710281615414_rawtags.cs" />
+    <Compile Include="Migrations\201710281615414_rawtags.Designer.cs">
+      <DependentUpon>201710281615414_rawtags.cs</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ErrorStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -215,6 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Articles\index.css" />
+    <Content Include="Content\Articles\taggle.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\buttons.gif" />
@@ -243,6 +248,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\taggle-ie8.js" />
+    <Content Include="Scripts\taggle-ie9.js" />
+    <Content Include="Scripts\taggle.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -308,6 +316,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201710281615414_rawtags.resx">
+      <DependentUpon>201710281615414_rawtags.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ErrorStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorStrings.Designer.cs</LastGenOutput>

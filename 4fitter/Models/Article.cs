@@ -27,6 +27,9 @@ namespace _4fitter.Models
 
         public string Author { get; set; }
 
+        [Required]
+        public string RawTags { get; set; }
+
         public virtual ICollection<Tag> Tags { get; set; }
     }
 }
