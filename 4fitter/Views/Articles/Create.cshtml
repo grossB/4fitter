@@ -53,7 +53,12 @@
             @Html.HiddenFor(model => model.ContentTextFormatted, new { id = "article-content" })
         </div>
 
-        <textarea id="input" name="input"></textarea>
+        <textarea id="input" name="input">
+            @if (Model != null)
+            {
+                @Model.ContentTextFormatted
+            }
+        </textarea>
 
         <div class="form-group">
             <input id="button-submit" type="submit" value="Dodaj artykuł" class="btn btn-success" />

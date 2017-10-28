@@ -51,7 +51,7 @@ namespace _4fitter.Controllers
         [ValidateInput(false)]
         public ActionResult Create([Bind(Include = "ID,Title,IllustrationURL,FriendlyID,ArticleType,ContentTextFormatted,Author")] Article article)
         {
-            this.CheckIfTitleUnique(article.Title, article.FriendlyID);
+            this.CheckIfTitleUnique(article);
 
             if (ModelState.IsValid)
             {
@@ -88,7 +88,7 @@ namespace _4fitter.Controllers
         [ValidateInput(false)]
         public ActionResult Edit([Bind(Include = "ID,Title,IllustrationURL,FriendlyID,ArticleType,ContentTextFormatted,Author")] Article article)
         {
-            this.CheckIfTitleUnique(article.Title, article.FriendlyID);
+            this.CheckIfTitleUnique(article);
 
             if (ModelState.IsValid)
             {
@@ -134,9 +134,11 @@ namespace _4fitter.Controllers
             base.Dispose(disposing);
         }
 
-        private void CheckIfTitleUnique(string title, string friendlyId)
+        private void CheckIfTitleUnique(Article article)
         {
-            var isDuplicated = db.Articles.Any(a => a.Title == title && a.FriendlyID == friendlyId);
+            var isDuplicated = db.Articles.Any(a => a.Title == article.Title && 
+                                                    a.FriendlyID == article.FriendlyID &&
+                                                    a.ID != article.ID);
 
             if (isDuplicated)
             {
