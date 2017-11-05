@@ -90,6 +90,9 @@ namespace _4fitter.Controllers
 			{
 				return HttpNotFound();
 			}
+
+            ViewBag.RawTags = string.Join(",", article.Tags.Select(t => t.Name));
+
 			return View(article);
 		}
 
@@ -97,15 +100,45 @@ namespace _4fitter.Controllers
 		[HttpPost]
 		[ValidateAntiForgeryToken]
 		[ValidateInput(false)]
-		public ActionResult Edit([Bind(Include = "ID,Title,IllustrationURL,FriendlyID,ArticleType,ContentTextFormatted,Author")] Article article)
+		public ActionResult Edit([Bind(Include = "ID,Title,IllustrationURL,FriendlyID,ArticleType,ContentTextFormatted,Author,RawTags")] Article article)
 		{
 			this.CheckIfTitleUnique(article);
 
 			if (ModelState.IsValid)
 			{
-				db.Entry(article).State = EntityState.Modified;
-				db.SaveChanges();
-				return RedirectToAction("Index");
+                var actualArticle = db.Articles.AsNoTracking().First(a => a.ID == article.ID);
+                var tags = this.GetTagsByRawTags(article.RawTags);
+                var correctTags = new List<Tag>();
+
+                foreach (var tag in tags)
+                {
+                    var isDuplicated = db.Tags.Any(t => t.Name == tag.Name);
+
+                    if (isDuplicated)
+                    {
+                        correctTags.Add(db.Tags.First(t => t.Name == tag.Name));
+                        continue;
+                    }
+                    correctTags.Add(tag);
+                    db.Tags.Add(tag);
+                    db.Entry(tag).State = EntityState.Added;
+                }
+
+                article.Tags = correctTags;
+                db.Entry(article).State = EntityState.Modified;
+                db.SaveChanges();
+
+                //var previousTags = actualArticle.Tags.Except(correctTags);
+
+                //foreach (var prevTag in previousTags)
+                //{
+                //    var t = db.Tags.First(tag => tag.ID == prevTag.ID);
+                //    t.Articles.Remove(article);
+                //    db.Entry(t).State = EntityState.Modified;
+                //    db.SaveChanges();
+                //}
+
+                return RedirectToAction("Index");
 			}
 			return View(article);
 		}

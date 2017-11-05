@@ -1,5 +1,4 @@
 ﻿using _4fitter.Enums;
-using _4fitter.Utilities;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -28,6 +27,7 @@ namespace _4fitter.Models
         public string Author { get; set; }
 
         [Required]
+        [NotMapped]
         public string RawTags { get; set; }
 
         public virtual ICollection<Tag> Tags { get; set; }

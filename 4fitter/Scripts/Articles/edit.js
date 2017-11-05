@@ -1,6 +1,17 @@
 ﻿$(document).ready(function () {
     $('#input').cleditor();
-    var taggle = new Taggle('tags');
+
+    var taggle;
+    var rawTags = $('#raw-tags').val();
+
+    if (rawTags === "") {
+        taggle = new Taggle('tags');
+    }
+    else {
+        taggle = new Taggle('tags', {
+            tags: rawTags.split(',')
+        });
+    }
 
     $('#button-submit').click(function () {
         $('#article-content').val(getArticleAsHtml());

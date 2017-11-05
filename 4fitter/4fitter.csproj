@@ -188,6 +188,10 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Migrations\201711051521318_rawtagsnotmapped.cs" />
+    <Compile Include="Migrations\201711051521318_rawtagsnotmapped.Designer.cs">
+      <DependentUpon>201711051521318_rawtagsnotmapped.cs</DependentUpon>
+    </Compile>
     <Compile Include="Resources\ErrorStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -312,6 +316,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711051521318_rawtagsnotmapped.resx">
+      <DependentUpon>201711051521318_rawtagsnotmapped.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ErrorStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorStrings.Designer.cs</LastGenOutput>
