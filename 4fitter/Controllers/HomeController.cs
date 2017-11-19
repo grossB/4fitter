@@ -49,7 +49,10 @@ namespace _4fitter.Controllers
 
                 foreach (var article in articles)
                 {
-                    var isMatch = article.Tags.Any(tag => tag.Name.ToLower() == phrase.ToLower());
+                    var phraseProcessed = phrase.RemovePolishLetters();
+
+                    var isMatch = article.Tags.Any(tag => tag.Name.RemovePolishLetters() == phraseProcessed) 
+                                  || article.Title.RemovePolishLetters().Contains(phraseProcessed);
 
                     if (isMatch && !result.Contains(article))
                     {
