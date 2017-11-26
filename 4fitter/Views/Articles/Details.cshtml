@@ -1,0 +1,20 @@
+﻿@model _4fitter.Models.Article
+@using _4fitter.Utilities
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@if (User.IsInRole(Definitions.ROLE_ADMIN))
+{
+    <div id="article-management">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.ID })
+    </div>
+}
+
+<div>
+    <h3>@Html.DisplayFor(model => model.Title)</h3>
+
+    @Html.Raw(Model.ContentTextFormatted)
+</div>

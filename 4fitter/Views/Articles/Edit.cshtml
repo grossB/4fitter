@@ -1,0 +1,84 @@
+﻿@model _4fitter.Models.Article
+@using _4fitter.Utilities
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@section Styles {
+    <link rel="Stylesheet" href="@Href("~/Content/jquery.cleditor.css")" />
+    <link rel="Stylesheet" href="@Href("~/Content/Articles/taggle.min.css")" />
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/Articles/edit.js")
+    @Scripts.Render("~/Scripts/jquery.cleditor.min.js")
+    @Scripts.Render("~/Scripts/taggle.js")
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.FriendlyID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FriendlyID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FriendlyID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.IllustrationURL, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IllustrationURL, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.IllustrationURL, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArticleType, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.ArticleType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ArticleType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.HiddenFor(model => model.ContentTextFormatted, new { id = "article-content" })
+        </div>
+
+        <textarea id="input" name="input">
+            @Model.ContentTextFormatted
+        </textarea>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tags, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div id="tags"></div>
+            </div>
+            <div class="form-group">
+                @Html.HiddenFor(model => model.RawTags, new { id = "raw-tags", Value = ViewBag.RawTags })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <input id="button-submit" type="submit" value="Zapisz artykuł" class="btn btn-success" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

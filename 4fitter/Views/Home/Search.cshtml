@@ -1,0 +1,25 @@
+﻿@model IEnumerable<_4fitter.Models.Article>
+
+@{
+    ViewBag.Title = "Search results";
+}
+
+@section Styles {
+    <link rel="Stylesheet" href="@Href("~/Content/Articles/index.css")" />
+}
+
+<h2>Search results</h2>
+
+<div class="article-container">
+
+    @foreach (var item in Model)
+    {
+        <div class="article-preview">
+            <a href="/Articles/@item.FriendlyID">
+                <img class="article-illustration" src="@item.IllustrationURL" />
+                @item.Title
+            </a>
+        </div>
+    }
+
+</div>
