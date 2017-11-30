@@ -189,10 +189,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\BookmarksController.cs" />
     <Compile Include="Migrations\201711191419173_initial.cs" />
     <Compile Include="Migrations\201711191419173_initial.Designer.cs">
       <DependentUpon>201711191419173_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Bookmark.cs" />
     <Compile Include="Resources\ErrorStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -301,6 +303,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Bookmarks\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
