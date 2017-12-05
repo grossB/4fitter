@@ -11,6 +11,6 @@ namespace _4fitter.Models
         [NotMapped]
         public int ArticleID { get; set; }
 
-        public Article Article { get; set; }
+        public virtual Article Article { get; set; }
     }
 }

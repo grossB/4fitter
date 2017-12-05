@@ -30,6 +30,13 @@ namespace _4fitter.Controllers
             return View();
         }
 
+        //[Authorize(Roles = Definitions.ROLE_ADMIN)]
+        //[Authorize(Roles = Definitions.SITE_USER)]
+        public ActionResult UserPanel()
+        {
+            return View();
+        }
+
         [Authorize(Roles = Definitions.ROLE_ADMIN)]
         public ActionResult AdminPanel()
         {
