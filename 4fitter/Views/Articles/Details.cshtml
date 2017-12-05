@@ -1,9 +1,17 @@
 ﻿@model _4fitter.Models.Article
 @using _4fitter.Utilities
+@using Microsoft.AspNet.Identity
 
 @{
     ViewBag.Title = "Details";
 }
+
+@section scripts {
+    @Scripts.Render("~/Scripts/Articles/details.js")
+}
+
+<div id="userId" class="hidden-field">@User.Identity.GetUserId()</div>
+<div id="articleId" class="hidden-field">@Model.ID</div>
 
 @if (User.IsInRole(Definitions.ROLE_ADMIN))
 {
@@ -12,6 +20,8 @@
         @Html.ActionLink("Delete", "Delete", new { id = Model.ID })
     </div>
 }
+
+<div class="favorites-box"><input id="favorites-action" type="button" value="Dodaj do ulubionych"/></div>
 
 <div>
     <h3>@Html.DisplayFor(model => model.Title)</h3>

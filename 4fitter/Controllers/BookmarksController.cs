@@ -1,6 +1,8 @@
 ﻿using System.Net;
 using System.Web.Mvc;
 using _4fitter.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace _4fitter.Controllers
 {
@@ -10,11 +12,14 @@ namespace _4fitter.Controllers
 
         // POST: Bookmarks/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public HttpStatusCode Create([Bind(Include = "ID,UserID")] Bookmark bookmark)
+        public HttpStatusCode Create([Bind(Include = "ID,UserID,ArticleID")] Bookmark bookmark)
         {
-            if (ModelState.IsValid)
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            var userExists = userManager.FindById(bookmark.UserID) != null;
+
+            if (ModelState.IsValid && userExists)
             {
+                bookmark.Article = db.Articles.Find(bookmark.ArticleID);
                 db.Bookmarks.Add(bookmark);
                 db.SaveChanges();
                 return HttpStatusCode.OK;
