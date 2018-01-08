@@ -29,6 +29,13 @@ namespace _4fitter.Models
 
         public DbSet<Tag> Tags { get; set; }
 
+        public DbSet<Ingredient> Ingredients { get; set; }
+
+        public DbSet<Meal> Meals { get; set; }
+
+        public DbSet<BmrCalculator> BmrCalculators { get; set; }
+
+        public DbSet<DayOfWeek> DayOfWeeks { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
