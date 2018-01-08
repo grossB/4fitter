@@ -8,6 +8,7 @@ namespace _4fitter.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using System.Collections.Generic;
 
     internal sealed class Configuration : DbMigrationsConfiguration<_4fitter.Models.ApplicationDbContext>
     {

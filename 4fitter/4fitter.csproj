@@ -189,15 +189,21 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Migrations\201711191419173_initial.cs" />
-    <Compile Include="Migrations\201711191419173_initial.Designer.cs">
-      <DependentUpon>201711191419173_initial.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Controllers\BmrCalculatorsController.cs" />
+    <Compile Include="Controllers\EmailNotyfication.cs" />
+        <Compile Include="Controllers\IngredientsController.cs" />
+    <Compile Include="Controllers\MealsController.cs" />
+    <Compile Include="Enums\ActivityTypeEnum.cs" />
+    <Compile Include="Enums\Sex.cs" />
     <Compile Include="Resources\ErrorStrings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ErrorStrings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Models\BmrCalculator.cs" />
+    <Compile Include="Models\DayOfWeek.cs" />
+    <Compile Include="Models\Ingredient.cs" />
+    <Compile Include="Models\Meal.cs" />
     <Compile Include="Utilities\Definitions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
@@ -217,6 +223,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Utilities\ExtensionMethods.cs" />
+    <Compile Include="Utilities\MealPropertis.cs" />
+    <Compile Include="Utilities\RandomUtils.cs" />
+    <Compile Include="Utilities\RoleConditioner.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Articles\index.css" />
@@ -226,16 +235,19 @@
     <Content Include="Content\images\buttons.gif" />
     <Content Include="Content\images\toolbar.gif" />
     <Content Include="Content\jquery.cleditor.css" />
+    <Content Include="Content\timer.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\Articles\create.js" />
     <Content Include="Scripts\Articles\edit.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Compile Include="Enums\TargetTypeEnum.cs" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -249,6 +261,18 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Views\Home\TabataTimer\audio\end-round.wav" />
+    <Content Include="Views\Home\TabataTimer\audio\end.wav" />
+    <Content Include="Views\Home\TabataTimer\audio\start.wav" />
+    <Content Include="Views\Home\TabataTimer\audio\warning.wav" />
+    <Content Include="Content\images\COLOURlovers.com-storm_at_garden_city.png" />
+    <Content Include="Content\images\square-pattern.png" />
+        <None Include="Views\Home\TabataTimer.cshtml" />
+    <Content Include="Views\Home\TabataTimer\timer.css" />
+    <Content Include="Views\Home\TabataTimer\timer.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\taggle-ie8.js" />
     <Content Include="Scripts\taggle-ie9.js" />
     <Content Include="Scripts\taggle.js" />
@@ -297,10 +321,27 @@
     <Content Include="Views\Tags\Edit.cshtml" />
     <Content Include="Views\Tags\Index.cshtml" />
     <Content Include="Views\Home\AdminPanel.cshtml" />
+    <Content Include="Views\Ingredients\Create.cshtml" />
+    <Content Include="Views\Ingredients\Delete.cshtml" />
+    <Content Include="Views\Ingredients\Details.cshtml" />
+    <Content Include="Views\Ingredients\Edit.cshtml" />
+    <Content Include="Views\Ingredients\Index.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Meals\Create.cshtml" />
+    <Content Include="Views\Meals\Delete.cshtml" />
+    <Content Include="Views\Meals\Details.cshtml" />
+    <Content Include="Views\Meals\Edit.cshtml" />
+    <Content Include="Views\Meals\Index.cshtml" />
+    <Content Include="Views\BmrCalculators\Create.cshtml" />
+    <Content Include="Views\BmrCalculators\Delete.cshtml" />
+    <Content Include="Views\BmrCalculators\Details.cshtml" />
+    <Content Include="Views\BmrCalculators\Edit.cshtml" />
+    <Content Include="Views\BmrCalculators\Index.cshtml" />
+    <Content Include="Views\Home\TabataTimer\audio\README" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Home\TabataTimer\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -318,9 +359,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711191419173_initial.resx">
-      <DependentUpon>201711191419173_initial.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ErrorStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorStrings.Designer.cs</LastGenOutput>
