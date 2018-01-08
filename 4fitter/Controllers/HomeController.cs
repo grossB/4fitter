@@ -37,6 +37,11 @@ namespace _4fitter.Controllers
             return View();
         }
 
+        public ActionResult TabataTimer()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Search(string searchPhrase)
         {

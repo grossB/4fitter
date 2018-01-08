@@ -25,7 +25,6 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -191,19 +190,23 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\BmrCalculatorsController.cs" />
     <Compile Include="Controllers\EmailNotyfication.cs" />
-        <Compile Include="Controllers\IngredientsController.cs" />
+    <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\MealsController.cs" />
     <Compile Include="Enums\ActivityTypeEnum.cs" />
     <Compile Include="Enums\Sex.cs" />
-    <Compile Include="Resources\ErrorStrings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ErrorStrings.resx</DependentUpon>
+    <Compile Include="Migrations\201712141109053_ff01.cs" />
+    <Compile Include="Migrations\201712141109053_ff01.Designer.cs">
+      <DependentUpon>201712141109053_ff01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801082203439_Nowy01.cs" />
+    <Compile Include="Migrations\201801082203439_Nowy01.Designer.cs">
+      <DependentUpon>201801082203439_Nowy01.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BmrCalculator.cs" />
     <Compile Include="Models\DayOfWeek.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\Meal.cs" />
+    <Compile Include="Resources\ErrorStrings.Designer.cs" />
     <Compile Include="Utilities\Definitions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArticlesController.cs" />
@@ -246,6 +249,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Compile Include="Enums\TargetTypeEnum.cs" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -267,7 +271,7 @@
     <Content Include="Views\Home\TabataTimer\audio\warning.wav" />
     <Content Include="Content\images\COLOURlovers.com-storm_at_garden_city.png" />
     <Content Include="Content\images\square-pattern.png" />
-        <None Include="Views\Home\TabataTimer.cshtml" />
+    <None Include="Views\Home\TabataTimer.cshtml" />
     <Content Include="Views\Home\TabataTimer\timer.css" />
     <Content Include="Views\Home\TabataTimer\timer.js" />
     <Content Include="Web.config">
@@ -359,6 +363,12 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712141109053_ff01.resx">
+      <DependentUpon>201712141109053_ff01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801082203439_Nowy01.resx">
+      <DependentUpon>201801082203439_Nowy01.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ErrorStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorStrings.Designer.cs</LastGenOutput>
