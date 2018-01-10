@@ -7,13 +7,13 @@ namespace _4fitter.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class initial : IMigrationMetadata
+    public sealed partial class new02 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(initial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(new02));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711191419173_initial"; }
+            get { return "201801100834277_new02"; }
         }
         
         string IMigrationMetadata.Source

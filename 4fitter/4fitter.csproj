@@ -192,20 +192,18 @@
     <Compile Include="Controllers\EmailNotyfication.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\MealsController.cs" />
+    <Compile Include="Controllers\OneRepMaxesController.cs" />
     <Compile Include="Enums\ActivityTypeEnum.cs" />
     <Compile Include="Enums\Sex.cs" />
-    <Compile Include="Migrations\201712141109053_ff01.cs" />
-    <Compile Include="Migrations\201712141109053_ff01.Designer.cs">
-      <DependentUpon>201712141109053_ff01.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801082203439_Nowy01.cs" />
-    <Compile Include="Migrations\201801082203439_Nowy01.Designer.cs">
-      <DependentUpon>201801082203439_Nowy01.cs</DependentUpon>
+    <Compile Include="Migrations\201801100834277_new02.cs" />
+    <Compile Include="Migrations\201801100834277_new02.Designer.cs">
+      <DependentUpon>201801100834277_new02.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BmrCalculator.cs" />
     <Compile Include="Models\DayOfWeek.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Models\Meal.cs" />
+    <Compile Include="Models\OneRepMax.cs" />
     <Compile Include="Resources\ErrorStrings.Designer.cs" />
     <Compile Include="Utilities\Definitions.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -342,6 +340,8 @@
     <Content Include="Views\BmrCalculators\Edit.cshtml" />
     <Content Include="Views\BmrCalculators\Index.cshtml" />
     <Content Include="Views\Home\TabataTimer\audio\README" />
+    <Content Include="Views\OneRepMaxes\Create.cshtml" />
+    <Content Include="Views\OneRepMaxes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -363,11 +363,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712141109053_ff01.resx">
-      <DependentUpon>201712141109053_ff01.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801082203439_Nowy01.resx">
-      <DependentUpon>201801082203439_Nowy01.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801100834277_new02.resx">
+      <DependentUpon>201801100834277_new02.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ErrorStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>

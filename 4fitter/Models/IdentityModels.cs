@@ -35,7 +35,10 @@ namespace _4fitter.Models
 
         public DbSet<BmrCalculator> BmrCalculators { get; set; }
 
+        public DbSet<OneRepMax> OneRepMaxes { get; set; }
+
         public DbSet<DayOfWeek> DayOfWeeks { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
