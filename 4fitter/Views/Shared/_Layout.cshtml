@@ -24,24 +24,24 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Tabata", "TabataTimer", "Home")</li>
-                    <li>@Html.ActionLink("Panel administratora", "AdminPanel", "Home").CheckIfUserIsInRole(User.IsInRole(Definitions.ROLE_ADMIN))</li>
+                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+                    <li>@Html.ActionLink("ABOUT", "About", "Home")</li>
+                    <li>@Html.ActionLink("CONTACT", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("TABATA", "TabataTimer", "Home")</li>
+                    <li>@Html.ActionLink("PANEL ADMINISTRATORA", "AdminPanel", "Home").CheckIfUserIsInRole(User.IsInRole(Definitions.ROLE_ADMIN))</li>
                 </ul>
                 <div id="search-box">
-                    @using (Html.BeginForm("Search", "Home"))
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { id = "search-form" }))
                     {
-                        <input class="form-control" name="searchPhrase" />
-                        <input id="button-search" type="submit" value="Szukaj" class="btn btn-default" />
+                        <input id="input-search" class="form-control" name="searchPhrase" />
+                        <input id="button-search" src="~/Content/images/search.png" type="image" class="btn btn-default" />
                     }
                 </div>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" id="page-container">
         @RenderBody()
     </div>
 
