@@ -1,6 +1,15 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: #FFFFFF;
+    width: 100%;
+    min-height: 64px;
+    background: #1d335c;
 }
 
 #search-box {
@@ -15,8 +24,13 @@
     display: none;
 }
 
-/* Set padding to keep content from hitting the edges */
+.navbar-inverse {
+    background-color: #1d335c;
+    border: 0px;
+}
+
 .body-content {
+    padding-top: 128px;
     padding-left: 15px;
     padding-right: 15px;
 }

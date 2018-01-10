@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using _4fitter.Enums;
 
 namespace _4fitter.Controllers
 {
@@ -39,6 +40,11 @@ namespace _4fitter.Controllers
 
         [Authorize(Roles = Definitions.ROLE_ADMIN)]
         public ActionResult AdminPanel()
+        {
+            return View();
+        }
+
+        public ActionResult TabataTimer()
         {
             return View();
         }
