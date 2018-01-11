@@ -14,7 +14,7 @@ namespace _4fitter.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(db.Articles.ToList());
         }
 
         public ActionResult About()

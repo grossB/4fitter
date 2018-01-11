@@ -104,3 +104,38 @@ select,
 textarea {
     max-width: 280px;
 }
+
+#big-article-td {
+    vertical-align: top;
+}
+
+.big-article-preview {
+    width: 100%;
+    height: 100%;
+}
+
+.small-article-preview {
+    display: flex;
+    align-items: flex-start;
+    width: 300px;
+    margin-bottom: 15px;
+}
+
+.article-illustration {
+    width: 160px;
+    height: 100px;
+    margin-right: 15px;
+}
+
+#articles-table {
+    width: 100%;
+}
+
+.article-title {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.big-article-illustration {
+    top: 0;
+}
