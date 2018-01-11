@@ -234,6 +234,7 @@
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\search.png" />
     <Content Include="Content\images\toolbar.gif" />
+    <Content Include="Content\images\user.png" />
     <Content Include="Content\jquery.cleditor.css" />
     <Content Include="Content\timer.css" />
     <Content Include="favicon.ico" />

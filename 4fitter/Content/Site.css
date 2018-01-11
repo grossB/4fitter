@@ -19,6 +19,17 @@ footer {
     background: #eeeeee;
 }
 
+#user-button {
+    display: block;
+    border-radius: 0;
+    background-color: #19d368;
+    border-color: #19d368;
+    border-style: none;
+    margin-top: 36px;
+    width: 50px;
+    height: 38px;
+}
+
 .container {
     padding-left: 0;
     padding-right: 0;
@@ -74,6 +85,12 @@ footer {
     padding-right: 15px;
 }
 
+.navbar-right .dropdown-menu {
+    top: 72px;
+    right: auto;
+    border-radius: 0;
+    border-color: #FFFFFF;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
