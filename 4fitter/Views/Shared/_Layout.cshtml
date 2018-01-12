@@ -33,7 +33,7 @@
                 <div id="search-box">
                     @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { id = "search-form" }))
                     {
-                        <input id="input-search" class="form-control" name="searchPhrase" />
+                        <input id="input-search" placeholder="czego szukasz?" class="form-control" name="searchPhrase" />
                         <input id="button-search" src="~/Content/images/search.png" type="image" class="btn btn-default" />
                     }
                 </div>
