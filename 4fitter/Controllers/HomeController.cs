@@ -14,7 +14,7 @@ namespace _4fitter.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return View(db.Articles.ToList());
         }
 
         public ActionResult About()
@@ -28,6 +28,13 @@ namespace _4fitter.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        //[Authorize(Roles = Definitions.ROLE_ADMIN)]
+        //[Authorize(Roles = Definitions.SITE_USER)]
+        public ActionResult UserPanel()
+        {
             return View();
         }
 

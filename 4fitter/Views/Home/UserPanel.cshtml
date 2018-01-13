@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Lista ulubionych artykułów";
+}
+
+@section scripts {
+    @Scripts.Render("~/Scripts/Home/userpanel.js")
+}
+
+<div id="userId" class="hidden-field">@User.Identity.GetUserId()</div>
+
+<h2>Panel użytkownika</h2>
+
+<div id="bookmarked-articles">
+
+</div>

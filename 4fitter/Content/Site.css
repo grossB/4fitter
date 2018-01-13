@@ -1,14 +1,96 @@
 ﻿body {
     padding-top: 50px;
-    padding-bottom: 20px;
 }
 
-/* Set padding to keep content from hitting the edges */
+footer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    color: #FFFFFF;
+    width: 100%;
+    min-height: 64px;
+    background: #1d335c;
+}
+
+#page-container {
+    min-height: 100vh;
+    height: auto !important;
+    height: 100vh;
+    background: #eeeeee;
+}
+
+#user-button {
+    display: block;
+    border-radius: 0;
+    background-color: #19d368;
+    border-color: #19d368;
+    border-style: none;
+    margin-top: 36px;
+    width: 50px;
+    height: 38px;
+}
+
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+#search-box {
+    float: left;
+    padding-top: 36px;
+    margin-left: 24px;
+}
+
+#input-search {
+    display: block;
+    border-radius: 0;
+    font-size: 24px;
+    height: 38px;
+}
+
+#search-form {
+    display: flex;
+    align-content: center;
+}
+
+#button-search {
+    display: block;
+    border-radius: 0;
+    background-color: #19d368;
+    border-color: #19d368;
+}
+
+.hidden-field {
+    display: none;
+}
+
+#favorites-remove, #favorites-add {
+    display: none;
+}
+
+.navbar-inverse {
+    background-color: #1d335c;
+    border: 0;
+}
+
+.navbar-nav {
+    padding-top: 32px;
+    margin-left: 24px;
+    font-weight: bold;
+}
+
 .body-content {
+    padding-top: 128px;
     padding-left: 15px;
     padding-right: 15px;
 }
 
+.navbar-right .dropdown-menu {
+    top: 72px;
+    right: auto;
+    border-radius: 0;
+    border-color: #FFFFFF;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -21,4 +103,39 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+#big-article-td {
+    vertical-align: top;
+}
+
+.big-article-preview {
+    width: 100%;
+    height: 100%;
+}
+
+.small-article-preview {
+    display: flex;
+    align-items: flex-start;
+    width: 300px;
+    margin-bottom: 15px;
+}
+
+.article-illustration {
+    width: 160px;
+    height: 100px;
+    margin-right: 15px;
+}
+
+#articles-table {
+    width: 100%;
+}
+
+.article-title {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.big-article-illustration {
+    top: 0;
 }

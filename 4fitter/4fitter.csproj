@@ -188,6 +188,8 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\BookmarksController.cs" />
+    <Compile Include="Models\Bookmark.cs" />
     <Compile Include="Controllers\BmrCalculatorsController.cs" />
     <Compile Include="Controllers\EmailNotyfication.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
@@ -195,10 +197,6 @@
     <Compile Include="Controllers\OneRepMaxesController.cs" />
     <Compile Include="Enums\ActivityTypeEnum.cs" />
     <Compile Include="Enums\Sex.cs" />
-    <Compile Include="Migrations\201801100834277_new02.cs" />
-    <Compile Include="Migrations\201801100834277_new02.Designer.cs">
-      <DependentUpon>201801100834277_new02.cs</DependentUpon>
-    </Compile>
     <Compile Include="Models\BmrCalculator.cs" />
     <Compile Include="Models\DayOfWeek.cs" />
     <Compile Include="Models\Ingredient.cs" />
@@ -215,7 +213,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -234,14 +231,17 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\buttons.gif" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\search.png" />
     <Content Include="Content\images\toolbar.gif" />
+    <Content Include="Content\images\user.png" />
     <Content Include="Content\jquery.cleditor.css" />
     <Content Include="Content\timer.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\Articles\create.js" />
+    <Content Include="Scripts\Articles\details.js" />
     <Content Include="Scripts\Articles\edit.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -251,6 +251,7 @@
     </Content>
     <Compile Include="Enums\TargetTypeEnum.cs" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Home\userpanel.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -329,6 +330,7 @@
     <Content Include="Views\Ingredients\Edit.cshtml" />
     <Content Include="Views\Ingredients\Index.cshtml" />
     <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\UserPanel.cshtml" />
     <Content Include="Views\Meals\Create.cshtml" />
     <Content Include="Views\Meals\Delete.cshtml" />
     <Content Include="Views\Meals\Details.cshtml" />
@@ -344,8 +346,7 @@
     <Content Include="Views\OneRepMaxes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Views\Home\TabataTimer\images\" />
+    <Content Include="Migrations\Configuration.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -363,13 +364,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801100834277_new02.resx">
-      <DependentUpon>201801100834277_new02.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ErrorStrings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ErrorStrings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Home\TabataTimer\images\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

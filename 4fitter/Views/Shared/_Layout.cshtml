@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>4fitter - Your way to stay in shape!</title>
     @RenderSection("styles", false)
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -20,32 +20,34 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <img src="~/Content/images/logo.png" />
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Tabata", "TabataTimer", "Home")</li>
-                    <li>@Html.ActionLink("Panel administratora", "AdminPanel", "Home").CheckIfUserIsInRole(User.IsInRole(Definitions.ROLE_ADMIN))</li>
+                    <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+                    <li>@Html.ActionLink("ABOUT", "About", "Home")</li>
+                    <li>@Html.ActionLink("CONTACT", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("TABATA", "TabataTimer", "Home")</li>
+                    <li>@Html.ActionLink("PANEL ADMINISTRATORA", "AdminPanel", "Home").CheckIfUserIsInRole(User.IsInRole(Definitions.ROLE_ADMIN))</li>
                 </ul>
-                @using (Html.BeginForm("Search", "Home"))
-                {
-                    <input class="form-control" name="searchPhrase"/>
-                    <input id="button-submit" type="submit" value="Szukaj" class="btn btn-default" />
-                }
+                <div id="search-box">
+                    @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { id = "search-form" }))
+                    {
+                        <input id="input-search" placeholder="czego szukasz?" class="form-control" name="searchPhrase" />
+                        <input id="button-search" src="~/Content/images/search.png" type="image" class="btn btn-default" />
+                    }
+                </div>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" id="page-container">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
+
+    <footer>
+        Copyright © 2017 4fitter Team.
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

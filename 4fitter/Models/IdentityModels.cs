@@ -48,5 +48,7 @@ namespace _4fitter.Models
         {
             base.OnModelCreating(modelBuilder);
         }
+
+        public System.Data.Entity.DbSet<_4fitter.Models.Bookmark> Bookmarks { get; set; }
     }
 }

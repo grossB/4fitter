@@ -11,6 +11,9 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using _4fitter.Models;
+using System.Net.Mail;
+using System.Configuration;
+using System.Net;
 
 namespace _4fitter
 {
@@ -18,8 +21,16 @@ namespace _4fitter
     {
         public Task SendAsync(IdentityMessage message)
         {
-            // Plug in your email service here to send an email.
-            return Task.FromResult(0);
+            SmtpClient client = new SmtpClient();
+            client.Port = 587;
+            client.Host = "smtp.gmail.com";
+            client.EnableSsl = true;
+            //client.Timeout = 10000;
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("4fitter.app@gmail.com", "4fitter_pass");
+
+            return client.SendMailAsync("4fitter.app@gmail.com", message.Destination, message.Subject, message.Body);
         }
     }
 

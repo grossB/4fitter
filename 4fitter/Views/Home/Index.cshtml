@@ -1,40 +1,51 @@
-﻿@using System.ComponentModel
+﻿@model IEnumerable<_4fitter.Models.Article>
+
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Index";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<div class="article-container">
 
-<div>
-        @Html.Raw(ViewBag.mp)
-</div>
+    @{
+        var newestArticle = Model.Last();
+        var articles = Model.ToList().Skip(Math.Max(0, Model.Count() - 6));
+    }
 
+    <table id="articles-table">
+        <tr>
+            <td id="big-article-td" rowspan="5">
+                <div class="big-article-preview">
+                    <a href="/Articles/@newestArticle.FriendlyID">
+                        <img class="big-article-illustration" src="@newestArticle.IllustrationURL" /><br />
+                        @newestArticle.Title
+                    </a>
+                </div>
+            </td>
+            <td>
+                <div class="small-article-preview">
+                    <a class="article-title" href="/Articles/@articles.First().FriendlyID">
+                        <img class="article-illustration" src="@articles.First().IllustrationURL" />
+                        @articles.First().Title
+                    </a>
+                </div>
+            </td>
+        </tr>
 
-<div class="col-md-4">
-</div>
+        @for (var i = 1; i < articles.Count() - 1; i++)
+        {
+            var article = articles.ToList()[i];
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+            <tr>
+                <td>
+                    <div class="small-article-preview">
+                        <a class="article-title" href="/Articles/@article.FriendlyID">
+                            <img class="article-illustration" src="@article.IllustrationURL" />
+                            @article.Title
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+
 </div>
