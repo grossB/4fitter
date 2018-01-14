@@ -67,5 +67,10 @@ namespace _4fitter.Controllers
             return result;
         }
 
+        private void SendEmailNotification(Tuple<int, string> mealNewValues)
+        {
+
+        }
+
     }
 }
