@@ -64,9 +64,20 @@ namespace _4fitter.Controllers
                 return new HttpStatusCodeResult(500);
             }
 
-            var result = db.Bookmarks.Where(b => b.UserID == userId).ToList();
+            var bookmarks = db.Bookmarks.Where(b => b.UserID == userId).ToList();
 
-            return Json(result, JsonRequestBehavior.AllowGet);
+            foreach (var bookmark in bookmarks)
+            {
+                var article = new Article
+                {
+                    ID = bookmark.Article.ID,
+                    FriendlyID = bookmark.Article.FriendlyID,
+                    Title = bookmark.Article.Title
+                };
+                bookmark.Article = article;
+            }
+
+            return Json(bookmarks, JsonRequestBehavior.AllowGet);
         }
 
         private bool IsUserExist(string id)

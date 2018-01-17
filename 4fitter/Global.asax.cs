@@ -47,7 +47,7 @@ namespace _4fitter
             }
         }
 
-        private async void SendEmails()
+        private void SendEmails()
         {
             var fromaddr = "4fitter.app@gmail.com";
             var toaddr = "x@gmail.com";
