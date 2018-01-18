@@ -58,6 +58,7 @@ footer {
     border-radius: 0;
     background-color: #19d368;
     border-color: #19d368;
+    width: auto;
 }
 
 .hidden-field {

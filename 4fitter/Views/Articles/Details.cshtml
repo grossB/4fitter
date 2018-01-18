@@ -16,8 +16,8 @@
 @if (User.IsInRole(Definitions.ROLE_ADMIN))
 {
     <div id="article-management">
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-        @Html.ActionLink("Delete", "Delete", new { id = Model.ID })
+        @Html.ActionLink("Edytuj", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Usuń", "Delete", new { id = Model.ID })
     </div>
 }
 
